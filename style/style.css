@@ -244,6 +244,7 @@ html, body {
   width: 90%;
   height: auto;
   border-radius: 0.5rem;
+  box-shadow: 0px 4px 15px -1px var(--Dark-Brown);
   /* /* margin-right: 0;*/
 }
 
