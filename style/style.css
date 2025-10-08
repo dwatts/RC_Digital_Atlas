@@ -9,7 +9,7 @@
   --Bodoni:"Bodoni Moda", serif;
   --Oswald: "Oswald", sans-serif;
   /* --Background: rgba(170, 138, 82, .9); */
-  --Background: rgba(170, 160, 82, .9);
+  --Background: rgba(170, 160, 82, .95);
   --Background-Alt: rgba(216, 182, 125, 0.95);
   --Background-Blue: rgba(100, 155, 146, 0.9);
   --Background-Blue-No-Opacity: rgba(100, 155, 146, 1);
@@ -150,7 +150,7 @@ html, body {
 } */
 
 .entry-holder {
-  background-color: var(--Background);
+  background-color: var(--Dark-Brown);
   border-radius: 5px;
   padding: 20px;
   color: black;
@@ -168,9 +168,9 @@ html, body {
 
 .entry-holder span {
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 200;
   font-family: var(--Bodoni);
-  color: var(--Dark-Brown);
+  color: #fff;
   line-height: 2.7rem;
   letter-spacing: .05rem;
 }
