@@ -18,26 +18,6 @@ const dcBuildingsRenderer = {
     }
 };
 
-// const rcStructuresRenderer = {
-//     type: "simple",
-//     symbol: {
-//     type: "mesh-3d",
-//     symbolLayers: [
-//         {
-//         type: "fill",
-//         material: {
-//             color: [170, 138, 82, 0.7]
-//         },
-//         edges: {
-//             type: "sketch",
-//             color: [0, 0, 0, 0.6],
-//             size: 0.5
-//         }
-//         }
-//     ]
-//     }
-// };
-
 //RC Structure Renderer
 
 //***********General Edge Renderer**********//
@@ -56,7 +36,7 @@ const admin = {
     {
       type: "fill",
       material: {
-        color: "#E41A1C"
+        color: "#730900"
       },
       edges: structureEdges    
     } 
@@ -69,7 +49,7 @@ const gathering = {
     {
       type: "fill",
       material: {
-        color: "#377EB8"
+        color: "#944229"
       },
       edges: structureEdges    
     } 
@@ -82,7 +62,7 @@ const groupRes = {
     {
       type: "fill",
       material: {
-        color: "#4DAF4A"
+        color: "#B67C53"
       },
       edges: structureEdges    
     } 
@@ -95,25 +75,12 @@ const indRes = {
     {
       type: "fill",
       material: {
-        color: "#984EA3"
+        color: "#D8B67D"
       },
       edges: structureEdges    
     } 
   ]  
 }  
-
-const notDetermined = {
-  type: "mesh-3d",
-  symbolLayers: [
-    {
-      type: "fill",
-      material: {
-        color: "#FF7F00"
-      },
-      edges: structureEdges    
-    } 
-  ]  
-}
 
 const services = {
   type: "mesh-3d",
@@ -121,7 +88,7 @@ const services = {
     {
       type: "fill",
       material: {
-        color: "#FFFF33"
+        color: "#9EA887"
       },
       edges: structureEdges    
     } 
@@ -134,15 +101,26 @@ const utilities = {
     {
       type: "fill",
       material: {
-        color: "#A65628"
+        color: "#649B92"
       },
       edges: structureEdges    
     } 
   ]  
 }
 
+const notDetermined = {
+  type: "mesh-3d",
+  symbolLayers: [
+    {
+      type: "fill",
+      material: {
+        color: "#efefef"
+      },
+      edges: structureEdges    
+    } 
+  ]  
+}
 
-  
 const rcStructuresRenderer = {
   type: "unique-value",
   defaultSymbol: {
@@ -205,19 +183,6 @@ const rcRenderer = {
     }
 }
 
-const mallRenderer = {
-        type: "simple",
-        symbol: {
-        type: "polygon-3d",
-        symbolLayers: [{
-            type: "fill",
-            material: {
-            color: "#e6eae6"
-            }
-        }]
-    }
-};
-
 const dcBoundaryRenderer = {            
     type: "simple",
     symbol: {
@@ -230,8 +195,6 @@ const dcBoundaryRenderer = {
         }
     }
 }
-
-
 
 // const rcRenderer = {
 //   type: "simple",

@@ -112,55 +112,55 @@ require(["esri/WebScene",
     const rcStructures = new SceneLayer({
       url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Models/SceneServer",
       renderer: rcStructuresRenderer,
-      opacity: 0
+      elevationInfo: {
+        mode: "on-the-ground"
+      }
     });
 
     const rcTrees = new SceneLayer({                    
-        url:"https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Area_Trees/SceneServer",
-        opacity: 0.6,
+        url:"https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Trees_Expanded/SceneServer",
+        opacity: 0.4,
         popupEnabled: false
     });
 
     const dcBuildings = new SceneLayer({
         url: "https://services.arcgis.com/neT9SoYxizqTHZPH/arcgis/rest/services/DC_3D_Buildings/SceneServer",
         definitionExpression: "EGID NOT IN ('DC00002813', 'DC00002812', 'DC00002810', 'DC00002811', 'DC00002814', 'DC00002809')",
-        renderer: dcBuildingsRenderer
+        renderer: dcBuildingsRenderer,
+        popupEnabled: false
     });
 
     const dcBuildingsBackground = new SceneLayer({
         url: "https://services.arcgis.com/neT9SoYxizqTHZPH/arcgis/rest/services/DC_3D_Buildings/SceneServer",
         definitionExpression: "EGID NOT IN ('DC00002813', 'DC00002812', 'DC00002810', 'DC00002811', 'DC00002814', 'DC00002809')",
-        renderer: dcBuildingsRenderer
+        renderer: dcBuildingsRenderer,
+        popupEnabled: false
     });
 
-    const mallGroundCover = new FeatureLayer({
-      url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Mall_Cover/FeatureServer",
-      elevationInfo: {
-        mode: "on-the-ground",
-      },
-      maxScale: 0,
-      renderer: mallRenderer,
+    const newDealBuildings = new SceneLayer({
+      url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/NewDeal_Mall_Structures/SceneServer",
+      renderer: dcBuildingsRenderer,
       popupEnabled: false
     });
 
-    //  const dcbase = new VectorTileLayer ({
-    //     url: "https://tiles.arcgis.com/tiles/uX5kr9HIx4qXytm9/arcgis/rest/services/2020_DC_Labels/VectorTileServer",
-    //     //opacity: 0.1,
-    //     visible: true
-    //  });
+    const newDealBuildingsBackground = new SceneLayer({
+      url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/NewDeal_Mall_Structures/SceneServer",
+      renderer: dcBuildingsRenderer,
+      popupEnabled: false
+    })
+
+     const dcbaseVector = new VectorTileLayer ({
+        url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base/VectorTileServer",
+        opacity: 0
+     });
+
+     const dcbaseVectorBackground = new VectorTileLayer ({
+        url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base/VectorTileServer",
+     });     
 
     const dcBase1965 = new TileLayer ({
       url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Aerial_1965/MapServer",
-      maxScale: 0,
-      minScale: 0,
-      opacity: 0.8
-    });
-
-    const dcBase1965Background = new TileLayer ({
-      url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Aerial_1965/MapServer",
-      maxScale: 0,
-      minScale: 0,
-      opacity: 0.8
+      opacity: 0.8,
     });
 
     const dcBoundary = new FeatureLayer({
@@ -171,9 +171,8 @@ require(["esri/WebScene",
      /***Background Map***/
 
      const map = new WebScene({
-       //basemap: "topo-vector",
        ground: "world-elevation",
-       layers: [dcBase1965, dcBoundary, rcArea, rcStructures, dcBuildings]
+       layers: [dcBase1965, dcbaseVector, dcBoundary, rcArea, rcStructures, dcBuildings, newDealBuildings]
      });
 
      map.ground.opacity = 0;
@@ -183,6 +182,14 @@ require(["esri/WebScene",
        map: map,
        ui: {
             components: []
+       },
+       environment: {
+          background:{
+              type: "color", 
+              color: [244, 245, 240, 1]
+          },
+          atmosphereEnabled: false,
+          starsEnabled: false
        },
        camera: {
            position: {
@@ -197,18 +204,17 @@ require(["esri/WebScene",
            heading: 0.23259318346220675,
            tilt: 0.5041449310180743
          },
-        viewingMode: "local"
+        viewingMode: "global"
      });
 
      /***Interactive Map***/
 
      const mapTwo = new WebScene({
-       basemap: "gray-vector",
        ground: "world-elevation",
-       layers: [ dcBuildingsBackground, mallGroundCover, rcStructures, rcTrees]
+       layers: [dcbaseVectorBackground, dcBuildingsBackground, rcStructures, rcTrees, newDealBuildingsBackground]
      }); 
 
-    //  mapTwo.ground.opacity = 0;
+      mapTwo.ground.opacity = 0;
 
      const viewTwo = new SceneView({
        container: "viewDivTwo",
@@ -216,10 +222,18 @@ require(["esri/WebScene",
        ui: {
             components: ["zoom"]
        },
-       navigation: {
-          mouseWheelZoomEnabled: false,
-          browserTouchPanEnabled: false,
-        },
+       environment: {
+          background:{
+              type: "color", 
+              color: [244, 245, 240, 1]
+          },
+          atmosphereEnabled: false,
+          starsEnabled: false
+       },
+       navigation: { 
+          mouseWheelZoomEnabled: false, 
+          browserTouchPanEnabled: false, 
+       },
        camera: {
            position: {
               spatialReference: {
@@ -245,14 +259,14 @@ require(["esri/WebScene",
       duration: 3000
     };
 
-    const videoDiv = document.querySelector('.video-div');
-    const video = document.querySelector('.rc-video');
+    // const videoDiv = document.querySelector('.video-div');
+    // const video = document.querySelector('.rc-video');
 
-    function toggleVid() {
-      if (video.classList.contains("hide")) {
-          video.classList.remove("hide")
-        } else {}
-    }
+    // function toggleVid() {
+    //   if (video.classList.contains("hide")) {
+    //       video.classList.remove("hide")
+    //     } else {}
+    // }
 
      /*Loop for multiple IO observations*/
 
@@ -296,7 +310,10 @@ require(["esri/WebScene",
               heading: 58.3410334,
               tilt: 59.7847356 
         }, opts);
-        rcArea.visible = false;
+        dcBase1965.opacity = 0.8;
+        if (dcbaseVector.opacity == 1) {
+          dcbaseVector.opacity = 0;
+        } 
       }
       if (el.id === "second") {
         view.goTo({
@@ -305,19 +322,15 @@ require(["esri/WebScene",
                   latestWkid: 3857,
                   wkid: 102100
                 },
-                x: -8577739.015829662,
-                y: 4705416.7429949315,
-                z: 383.7348862341552
+                x: -8570704.267592521,
+                y: 4701701.369031901,
+                z: 2102.793755807914
               },
-              heading: 83.059661469,
-              tilt: 70.92380334 
+              heading: 316.7449460926107,
+              tilt: 65.0006852142101 
         }, opts);
-        rcArea.visible = true;
-        rcStructures.opacity = 0;
-
-        // videoDiv.classList.remove("show");
-        // video.pause();
-        thresholdNumber = 0;
+        dcBase1965.opacity = 0;
+        dcbaseVector.opacity = 1;
       }
       if (el.id === "third") {
         view.goTo({
@@ -326,26 +339,14 @@ require(["esri/WebScene",
                   latestWkid: 3857,
                   wkid: 102100
                 },
-                x: -8576619.686341936,
-                y: 4704251.203138485,
-                z: 713.3121951625052
+                x: -8575671.6494669937,
+                y: 4705846.891771941,
+                z: 178.76294641476125
               },
-              heading: 0.490249338446696,
-              tilt: 67.11055912437567 
+              heading: 264.982385170003171,
+              tilt: 72.20536355676637 
         }, opts);
-        rcStructures.opacity = 0.9;
       }
-      // if (el.id === "fourth") {
-      //   videoDiv.classList.add("show");
-      //   video.load();
-      //   video.play();
-      // }
-      // if (el.id === "fifth") {
-      //   toggleVid();
-      // }
-      // if (el.id === "carousel-section") {
-      //   video.classList.add("hide");
-      // }
     }
 
     io.observe(document.querySelector('#title'));
