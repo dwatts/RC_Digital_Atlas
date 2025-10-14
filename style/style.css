@@ -121,6 +121,7 @@ html, body {
   border: 8px solid var(--Dark-Brown);
   border-radius: 50%;
   border-top: 8px solid var(--Background-Blue);
+  margin-top: 12rem;
   width: 50px;
   height: 50px;
   -webkit-animation: spin 1.5s linear infinite; /* Safari */
@@ -182,16 +183,22 @@ html, body {
 }
 
 .title-text {
-  font-size: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-text h1 {
+  font-size: 20rem;
   color: var(--Background-Alt);
-  letter-spacing: 0.1rem;
+  letter-spacing: 1.5rem;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   text-transform:uppercase;
 }
 
-
 .title-text span {
-  font-size: 10rem;
+  font-size: 12rem;
   font-family: var(--Antonio);
   color: var(--Background-Alt);
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
@@ -247,7 +254,9 @@ html, body {
 }
 
 .entry-holder p {
-  font-family: 500;
+  font-family: var(--Bodoni);
+  font-weight: 600;
+  padding-bottom: 1rem;
 }
 
 /***Video Div***/
@@ -661,7 +670,7 @@ html, body {
 /***Atlas Options Section***/
 
 .options-section {
-  height: 110vh;
+  height: 100vh;
   width: 100vw;
   background-color: var(--Background-Blue);
   display: flex;
@@ -693,27 +702,44 @@ html, body {
   letter-spacing: .05rem;
 }
 
-.options-section-text ul {
+/* .options-section-text ul {
   padding-left: 1rem;
   padding-top: 2rem;
-}
-
-.options-section-text li {
-  display: inline;
-  padding: 0 1rem 0 1rem;
-  font-size: 1.5rem;
-  font-weight: 400;
-  font-family: var(--Bodoni);
-  color: #fff;
-  letter-spacing: .05rem;
-}
+} */
 
 .options-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 80%;
-  padding-top: 6rem;
+  padding-top: 3rem;
+  height: 50rem;
+}
+
+.option-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  height: 40rem;
+}
+
+.option-wrapper span { 
+  /* font-size: 1.5rem;
+  font-weight: 400;
+  font-family: var(--Bodoni);
+  color: #fff;
+  letter-spacing: .05rem;
+  text-align: center;
+  line-height: 2rem; */
+
+  color: #fff;
+  font-family: var(--Bodoni);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.3rem;
+  text-align: center;
+  letter-spacing: .05rem;
 }
 
 .option {
@@ -729,6 +755,7 @@ html, body {
   box-shadow: 0px 4px 15px -1px var(--Dark-Brown);
   transition: transform 0.3s;
   cursor: pointer;
+  margin-bottom: 4rem;
 }
 
 .option:hover {
