@@ -14,6 +14,14 @@
 
     <div id="text-overlay">
 
+        <!--Atlas Logo-->
+
+        <div class="logo-container" id="logo-container">
+          <div class="logo">
+            <img src="./assets/icons/Tent_Icon.png" alt="">
+          </div>
+        </div>
+
         <!-- Title Section -->
 
         <div id="title" class="title">
@@ -25,24 +33,33 @@
 
         <!-- Boxes over Map Section -->
 
-        <div id="first" class="entry">
+        <div id="first" class="entry-left">
           <div class="entry-holder">
-            <!-- <h3>Main Title</h3> -->
+            <!-- Action Div! -->
             <span class="text">Resurrection City was a landscape of protest occupying the space of the National Mall from May 13 to June 23, 1968, as part of the Poor People's Campaign (PPC). The PPC, initially led by Dr. Martin Luther King Jr. and the Southern Christian Leadership Conference (SCLC), intended to bring economic justice to the forefront of political and civil rights issues. Resurrection City made the interlocking crises of poverty and racism highly visible by staging an encampment protest at one of the nation's most symbolically powerful place, the National Mall.</span>
-            <br><br>
-            <span class="text">“The true responsibility for the existence of these deplorable conditions [poverty] lies ultimately with the larger society, and much of the immediate responsibility for removing the injustices can be laid directly at the door of the federal government.” (Dr. Martin Luther King Jr., December 4, 1967)</span>
           </div>
         </div>
-        <div id="second" class="entry">
+        <div id="second" class="entry-right">
           <div class="entry-holder">
-            <!-- <h3>Second</h3> -->
+            <!-- Non-Action Div -->
+            <span class="text"><p>“The true responsibility for the existence of these deplorable conditions [poverty] lies ultimately with the larger society, and much of the immediate responsibility for removing the injustices can be laid directly at the door of the federal government.”</p>(Dr. Martin Luther King Jr., December 4, 1967)</span>
+          </div>
+        </div>
+        <div id="third" class="entry-left">
+          <div class="entry-holder">
+            <!-- Action Div! -->
             <span class="text">Resurrection City's location in the Washington, D.C. ceremonial core reflects the symbolic significance and visibility of this protest. Today, no physical traces remain on the landscape. This digital atlas seeks to visualize and interpret the significance and experience of this remarkable moment in 1968. It reminds us that protests were often temporary, despite being foundational to the civil rights movement, and rarely preserved in place. Memories of seminal events like Resurrection City &dash; where thousands of buildings and a whole settlement were built by protesters from around the country &dash; are mostly found in the pages of books, archives, and the occasional memorial plaque. The Resurrection City Digital Atlas encourages you to experience the many now&dash;absent aspects of the protest &dash; its spaces, its work, and its creators &dash; and reintroduce this site to the cultural landscape of the National Mall.</span>
           </div>
         </div>
-        <div id="third" class="entry">
+        <div id="fourth" class="entry-right">
           <div class="entry-holder">
+            <!-- Action Div! -->
             <span class="text">Resurrection City was more than just a collection of 519 temporary buildings: it was the outcome of national network of caravans, demonstrations, lobbying, coalitions, and debates. Resurrection City marked an important moment in civil rights history: the tipping point from Black-centered to socioeconomic political activism; a pivot in focus from racial injustice toward economic justice; and the remarkable leadership of the SCLC and many other civil rights leaders and workers in the wake of Dr. King's tragic murder.</span>
-            <br><br>
+          </div>
+        </div>
+        <div id="fifth" class="entry-left">
+          <div class="entry-holder">
+            <!-- Non-Action Div -->
             <span class="text">Resurrection City's location in America's most iconic and powerful memorial landscape was a deliberate decision for organizers. Protests have long played a central role in American democracy, and staging this protest in the heart of DC's monumental core &dash; practically in the shadow of Lincoln &dash; speaks to its significance. Resurrection City continued a long American tradition of resistance, civil demonstration, and claims to public space as landscapes of protest. But the impermanence of these protests raises an important question for historical preservation: how can they be preserved and remembered as part of the ongoing life of park landscapes?</span>
           </div>
         </div>
@@ -50,18 +67,17 @@
         <!-- Video Section -->
 
         <div id="video-section" class="video-section">
-          <div class="video-section-text">
-            <div class="video-section-text-holder">
-              <span class="text">Resurrection City was designed by a small group of Washington, DC-based architects, including Tunney Lee, Ken Jadin, and University of Maryland professor John Wiebenson. Discussions about where to locate Resurrection City ranged across the Washington region but ultimately landed in the heart of DC's monumental core, where it was granted permits and supervised by the NPS and law enforcement for six weeks in the spring of 1968. The encampment covered 16 acres and included 519 buildings built by volunteers and the protesters themselves to house thousands of people coming and going over six weeks. Throughout the encampment, protesters marched, staged events, and lobbied congresspeople.</span>
+          <div class="video-text-container">
+            <div class="video-section-video">
+              <video class="rc-video" autoplay loop muted>
+                <source src="./assets/video/RC_Aerial_Edited.mp4">
+              </video>
             </div>
-            <div class="video-section-text-holder">
-              <span class="text">The building and life of Resurrection City drew on a network of supporters all around DC. Food, supplies, services, temporary shelter, and organizing labor was donated by dozens of organizations, many of them still part of the fabric of Washington. The City's official permit was extended once and was ended on June 23, 1968. Police arrested 300 lingering protesters the following day. Resurrection City was demolished and erased, leaving a large, muddy field to be transformed back into the abstract and empty space of the National Mall. The ideas, values, critiques, and protests that brought Resurrection City to Washington in 1968 live on in present-day struggles for racial and economic justice, and the Poor People's Campaign continues to lead.</span>
+            <div class="video-section-text">
+              <div class="video-section-text-holder">
+                <span class="text">Resurrection City was designed by a small group of Washington, DC-based architects, including Tunney Lee, Ken Jadin, and University of Maryland professor John Wiebenson. Discussions about where to locate Resurrection City ranged across the Washington region but ultimately landed in the heart of DC's monumental core, where it was granted permits and supervised by the NPS and law enforcement for six weeks in the spring of 1968. The encampment covered 16 acres and included 519 buildings built by volunteers and the protesters themselves to house thousands of people coming and going over six weeks. Throughout the encampment, protesters marched, staged events, and lobbied congresspeople.</span>
+              </div>
             </div>
-          </div>
-          <div class="video-section-video">
-            <video class="rc-video" autoplay loop muted>
-              <source src="./assets/video/RC_Aerial_Edited.mp4">
-            </video>
           </div>
         </div>
 
@@ -172,12 +188,46 @@
         <!-- Interactive Map Section -->
 
         <div class="secondary-map-section">
+          <div class="text-container">
+            <p>The building and life of Resurrection City drew on a network of supporters all around DC. Food, supplies, services, temporary shelter, and organizing labor was donated by dozens of organizations, many of them still part of the fabric of Washington. The City's official permit was extended once and was ended on June 23, 1968. Police arrested 300 lingering protesters the following day. Resurrection City was demolished and erased, leaving a large, muddy field to be transformed back into the abstract and empty space of the National Mall. The ideas, values, critiques, and protests that brought Resurrection City to Washington in 1968 live on in present-day struggles for racial and economic justice, and the Poor People's Campaign continues to lead.</p>
+          </div>
           <div class="map-container">
-            <div class="map-text">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus saepe officiis sit, enim labore voluptatibus tempore. Sunt exercitationem laboriosam modi commodi aliquam corrupti libero dolores nesciunt, maiores a, perspiciatis repudiandae dolor optio! Exercitationem officia ducimus sed consequuntur odit voluptate cumque dicta nesciunt, fuga cum? Laudantium explicabo sed hic totam laboriosam perferendis fugit officia quo voluptatum quaerat vel quia aperiam, omnis iure perspiciatis magnam nihil sequi dolor quisquam aliquam impedit ab rem recusandae! Quaerat magni facere reiciendis, sed hic eaque impedit excepturi, quo similique voluptatum fugiat minima vel eos delectus! Incidunt facere magni asperiores qui laudantium maiores doloremque quam perspiciatis sit blanditiis rerum impedit, veniam ducimus nisi aperiam ut non. Distinctio esse odio assumenda labore provident saepe iusto officiis? Aliquid eveniet optio itaque facilis ipsa, sit ullam nobis in asperiores soluta earum unde sapiente ea assumenda esse culpa, cupiditate quibusdam harum iusto! Ipsam amet ipsum modi nobis optio sint praesentium necessitatibus.</p>
+            <div class="map-legend">
+              <h1>Map Legend</h1>
+              <p>Structure Use</p>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Administrative</p>
+              </div>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Gathering Space</p>
+              </div>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Group Residential</p>
+              </div>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Individual Residential</p>
+              </div>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Services</p>
+              </div>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Utilities</p>
+              </div>
+              <div class="legend-item">
+                <div class="use-item"></div>
+                <p>Not determined</p>
+              </div>
+              <!--  -->
             </div>
-            <div class="map-holder-legend">
+            <div class="map-holder">
                 <div id="viewDivTwo"></div>
+                <span>Zoom in to take a closer look at our reconstruction of Resurrection City</span>
             </div>
             
           </div>
@@ -187,21 +237,30 @@
 
         <div class="options-section">
           <h1>Explore the Atlas</h1>
+          <div class="options-section-text">
+            <span>Explore our recreations of Resurrection City across these four sequences, each detailing an important phase of this site’s history and impact:</span>
+            <ul>
+              <li>How was Resurrection City imagined?</li>
+              <li>How was Resurrection City designed and constructed?</li>
+              <li>What was daily life like in Resurrection City?</li>
+              <li>What is the legacy of Resurrection City?</li>
+            </ul>
+          </div>
           <div class="options-container">
             <div class="option">
-              <img src="./assets/images/Newspapers.png" alt="">
+              <img src="./assets/images/imagining.jpg" alt="">
               <h3>Imagining</h3>
             </div>
             <div class="option">
-              <img src="./assets/images/PartnerOrgs.png" alt="">
+              <img src="./assets/images/planning.jpg" alt="">
               <h3>Planning &amp Building</h3>
             </div>
             <div class="option">
-              <img src="./assets/images/RC_No_Texture.png" alt="">
+              <img src="./assets/images/living.jpg" alt="">
               <h3>Living &amp Leaving</h3>
             </div>
             <div class="option">
-              <img src="./assets/images/RC_Texture.png" alt="">
+              <img src="./assets/images/afterlives.jpg" alt="">
               <h3>Afterlives</h3>
             </div>
           </div>
@@ -213,6 +272,20 @@
     <div id="viewDiv"></div>
 
     <!-- End JS API View -->
+
+    <!-- Background Starter Div -->
+
+    <div class="background-starter-div"></div>
+
+    <!-- End Background Starter Div -->
+
+    <!-- Loader Div -->
+
+    <div class="loading-div">
+      <div class="loader"></div>
+    </div>
+
+    <!-- End Loader Div -->
 
     <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>

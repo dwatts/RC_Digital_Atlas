@@ -1,5 +1,50 @@
+/***Scroll Events***/
 
 const textOverlayDiv = document.getElementById('text-overlay');
+
+/***Logo click scroll to top***/
+
+const logoBtn = document.getElementById('logo-container');
+
+logoBtn.addEventListener('click', function () {
+  const duration = 750; // in ms
+  const start = textOverlayDiv.scrollTop;
+  const startTime = performance.now();
+
+  function scrollStep(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1); // from 0 to 1
+
+    textOverlayDiv.scrollTop = start * (1 - progress);
+
+    if (progress < 1) {
+      requestAnimationFrame(scrollStep);
+    }
+  }
+
+  requestAnimationFrame(scrollStep);
+});
+
+/***Event Listener to Atlas icon***/
+
+const logo = document.querySelector('.logo-container');
+const mapDiv = document.getElementById('viewDiv');
+const titleText = document.querySelector('.title-text');
+
+const scrollThreshold = 250;
+
+textOverlayDiv.addEventListener('scroll', () => {
+  if (textOverlayDiv.scrollTop > scrollThreshold) {
+    logo.classList.add('show');
+    mapDiv.classList.add('show')
+  } else {
+    logo.classList.remove('show');
+    mapDiv.classList.remove('show');
+  }
+});
+
+/***Event Listener to for scroll arrow***/
+
 const element = document.querySelector(".down-arrow");
 
 textOverlayDiv.addEventListener('scroll', () => {
@@ -14,19 +59,19 @@ textOverlayDiv.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to('.rc-video', {
-      yPercent: 40,
-      ease: "none",
-      scrollTrigger: {
-        trigger: '.video-section-text-holder:nth-of-type(1)',
-        scroller: '#text-overlay',
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    })
+  //   gsap.to('.rc-video', {
+  //     yPercent: -45,
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       trigger: '.video-section-text-holder',
+  //       scroller: '#text-overlay',
+  //       start: "top bottom",
+  //       end: "bottom top",
+  //       scrub: true
+  //     }
+  //   })
 
   const lenis = new Lenis({
     wrapper: document.querySelector('#text-overlay'),
@@ -41,12 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   requestAnimationFrame(raf)
+
+  const disableScrollArea = document.getElementById('viewDivTwo');
+
+  disableScrollArea.addEventListener('mouseenter', () => {
+    lenis.stop();
+  });
+
+  disableScrollArea.addEventListener('mouseleave', () => {
+    lenis.start();
+  });
 })
 
-    
 
-/*** Slider JS ***/ 
 
+/*** Slide Carousel ***/ 
 
 const slides = document.querySelectorAll(".slide");
 const nextBtn = document.querySelector(".next-arrow");
@@ -93,7 +147,6 @@ const makeSlideChanges = (newSlide) => {
 backBtn.addEventListener("click", handleBack);
 nextBtn.addEventListener("click", handleNext);
 
-
 /***ArcGIS JS API***/
 
 require(["esri/WebScene",
@@ -101,25 +154,30 @@ require(["esri/WebScene",
     "esri/layers/FeatureLayer",
     "esri/layers/SceneLayer",
     "esri/layers/VectorTileLayer",
-    "esri/layers/TileLayer"], (WebScene, SceneView, FeatureLayer, SceneLayer, VectorTileLayer, TileLayer) => {
-
-    const rcArea = new FeatureLayer({
-      url:"https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Area/FeatureServer",
-      renderer: rcRenderer,
-      visible: false
-    });
+    "esri/core/reactiveUtils",
+    "esri/layers/TileLayer"], (WebScene, SceneView, FeatureLayer, SceneLayer, VectorTileLayer, reactiveUtils, TileLayer) => {
 
     const rcStructures = new SceneLayer({
+      url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Models/SceneServer",
+      renderer: dcBuildingsRenderer,
+      elevationInfo: {
+        mode: "on-the-ground"
+      },
+      opacity: 0
+    });
+    
+    const rcStructuresBackground = new SceneLayer({
       url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Models/SceneServer",
       renderer: rcStructuresRenderer,
       elevationInfo: {
         mode: "on-the-ground"
-      }
+      },
+      popupEnabled: false
     });
 
     const rcTrees = new SceneLayer({                    
         url:"https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Trees_Expanded/SceneServer",
-        opacity: 0.4,
+        opacity: 0.7,
         popupEnabled: false
     });
 
@@ -150,17 +208,18 @@ require(["esri/WebScene",
     })
 
      const dcbaseVector = new VectorTileLayer ({
-        url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base/VectorTileServer",
+        url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base_Map/VectorTileServer",
         opacity: 0
      });
 
      const dcbaseVectorBackground = new VectorTileLayer ({
-        url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base/VectorTileServer",
+        url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base_Map/VectorTileServer",
+        opacity: 0.7
      });     
 
     const dcBase1965 = new TileLayer ({
       url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Aerial_1965/MapServer",
-      opacity: 0.8,
+      opacity: 1,
     });
 
     const dcBoundary = new FeatureLayer({
@@ -172,7 +231,7 @@ require(["esri/WebScene",
 
      const map = new WebScene({
        ground: "world-elevation",
-       layers: [dcBase1965, dcbaseVector, dcBoundary, rcArea, rcStructures, dcBuildings, newDealBuildings]
+       layers: [dcBase1965, dcbaseVector, dcBoundary, rcStructures, dcBuildings, newDealBuildings, rcStructures]
      });
 
      map.ground.opacity = 0;
@@ -186,7 +245,7 @@ require(["esri/WebScene",
        environment: {
           background:{
               type: "color", 
-              color: [244, 245, 240, 1]
+              color: [64, 46, 50, 1]
           },
           atmosphereEnabled: false,
           starsEnabled: false
@@ -211,7 +270,7 @@ require(["esri/WebScene",
 
      const mapTwo = new WebScene({
        ground: "world-elevation",
-       layers: [dcbaseVectorBackground, dcBuildingsBackground, rcStructures, rcTrees, newDealBuildingsBackground]
+       layers: [dcbaseVectorBackground, dcBuildingsBackground, rcStructuresBackground, rcTrees, newDealBuildingsBackground]
      }); 
 
       mapTwo.ground.opacity = 0;
@@ -219,20 +278,10 @@ require(["esri/WebScene",
      const viewTwo = new SceneView({
        container: "viewDivTwo",
        map: mapTwo,
+       qualityProfile: "high",
+       viewingMode: "global",
        ui: {
             components: ["zoom"]
-       },
-       environment: {
-          background:{
-              type: "color", 
-              color: [244, 245, 240, 1]
-          },
-          atmosphereEnabled: false,
-          starsEnabled: false
-       },
-       navigation: { 
-          mouseWheelZoomEnabled: false, 
-          browserTouchPanEnabled: false, 
        },
        camera: {
            position: {
@@ -240,33 +289,33 @@ require(["esri/WebScene",
                 latestWkid: 3857,
                 wkid: 102100
               },
-              x: -8576619.686341936,
-              y: 4704251.203138485,
-              z: 713.3121951625052
+              x: -8577269.845241047,
+              y: 4705647.647923097,
+              z: 84.40982836019248
             },
-            heading: 0.490249338446696,
-            tilt: 67.11055912437567 
+            heading: 80.98638525774925,
+            tilt: 85.16137847229764 
          },
-        viewingMode: "local"
+        environment: {
+          lighting: {
+              directShadowsEnabled: true
+          }
+       },
      });
 
-
-     /***Intersection Observer***/
-
-     /*Timing Options*/
-
-    const opts = {
-      duration: 3000
+     viewTwo.environment.weather = {
+      type: "cloudy",
+      precipitation: 0.3,
+      cloudCover: 0.7  
     };
 
-    // const videoDiv = document.querySelector('.video-div');
-    // const video = document.querySelector('.rc-video');
+    /***Intersection Observer***/
 
-    // function toggleVid() {
-    //   if (video.classList.contains("hide")) {
-    //       video.classList.remove("hide")
-    //     } else {}
-    // }
+    /*Timing Options*/
+
+    const opts = {
+      duration: 4500
+    };
 
      /*Loop for multiple IO observations*/
 
@@ -310,12 +359,14 @@ require(["esri/WebScene",
               heading: 58.3410334,
               tilt: 59.7847356 
         }, opts);
-        dcBase1965.opacity = 0.8;
-        if (dcbaseVector.opacity == 1) {
+        dcBase1965.opacity = 1;
+        //rcStructures.opacity = 0;
+        
+        if (dcbaseVector.opacity == 0.7) {
           dcbaseVector.opacity = 0;
         } 
       }
-      if (el.id === "second") {
+      if (el.id === "third") {
         view.goTo({
             position: {
                 spatialReference: {
@@ -330,9 +381,10 @@ require(["esri/WebScene",
               tilt: 65.0006852142101 
         }, opts);
         dcBase1965.opacity = 0;
-        dcbaseVector.opacity = 1;
+        dcbaseVector.opacity = 0.7;
+        rcStructures.opacity = 1;
       }
-      if (el.id === "third") {
+      if (el.id === "fourth") {
         view.goTo({
             position: {
                 spatialReference: {
@@ -351,22 +403,29 @@ require(["esri/WebScene",
 
     io.observe(document.querySelector('#title'));
     io.observe(document.querySelector('#first'));
-    io.observe(document.querySelector('#second'));
+    // io.observe(document.querySelector('#second'));
     io.observe(document.querySelector('#third'));
-    // io.observe(document.querySelector('#fourth'));
+    io.observe(document.querySelector('#fourth'));
     // io.observe(document.querySelector('#fifth'));
-    // io.observe(document.querySelector('#carousel-section'));
+
+    /****Close Loader Div after Layer Load****/
+
+    view.whenLayerView(dcBuildings).then((layerView) => {
+      reactiveUtils.whenOnce(() => !layerView.updating).then(() => {
+        document.querySelector('.loading-div').classList.toggle('hidden');
+      });
+    });
 
 
-    //  view.watch('camera.position', function(newValue, oldValue, property, object) {
+    //  viewTwo.watch('camera.position', function(newValue, oldValue, property, object) {
     //    console.log(property , newValue);
     //  });
      
-    //  view.watch('camera.heading', function(newValue, oldValue, property, object) {
+    //  viewTwo.watch('camera.heading', function(newValue, oldValue, property, object) {
     //    console.log(property , newValue);
     //  });
 
-    //  view.watch('camera.tilt', function(newValue, oldValue, property, object) {
+    //  viewTwo.watch('camera.tilt', function(newValue, oldValue, property, object) {
     //    console.log(property , newValue);
     //  });
 
