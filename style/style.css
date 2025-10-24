@@ -117,18 +117,18 @@ html, body {
   visibility: hidden;
 }
 
-.loader {
+/* .loader {
   border: 8px solid var(--Dark-Brown);
   border-radius: 50%;
   border-top: 8px solid var(--Background-Blue);
   margin-top: 12rem;
   width: 50px;
   height: 50px;
-  -webkit-animation: spin 1.5s linear infinite; /* Safari */
+  -webkit-animation: spin 1.5s linear infinite; 
   animation: spin 1.5s linear infinite;
 }
 
-/* Safari */
+
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -137,6 +137,45 @@ html, body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+} */
+
+.spinner {
+  margin-top: 12rem;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.spinner > div {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--Dark-Brown);
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.2s infinite ease-in-out both;
+}
+.spinner .bounce1 {
+  animation-delay: -0.4s;
+}
+.spinner .bounce2 {
+  animation-delay: -0.2s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 /*Atlas Logo*/
