@@ -172,7 +172,8 @@ require(["esri/WebScene",
       elevationInfo: {
         mode: "on-the-ground"
       },
-      popupEnabled: false
+      popupEnabled: false,
+      labelingInfo: [structureUseLabel]
     });
 
     const rcTrees = new SceneLayer({                    

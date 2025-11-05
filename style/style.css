@@ -4,6 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+@font-face {
+  font-family: 'MartinDisplayBold';
+  src: url('/assets/fonts/VTCMartinDisplay-XBold.woff2') format('woff2'),
+}
+
+@font-face {
+  font-family: 'MartinDisplayBoldForward';
+  src: url('/assets/fonts/VTCMartinDisplay-XBoldForward.woff2') format('woff2'),
+}
+
 :root {
   --Anton: "Anton", sans-serif;
   --Antonio: "Antonio", sans-serif;
@@ -229,20 +239,22 @@ html, body {
 }
 
 .title-text h1 {
-  font-size: 20rem;
+  font-size: 21rem;
   color: var(--Background-Alt);
-  letter-spacing: 1.5rem;
+  letter-spacing: 1.1rem;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   text-transform:uppercase;
+  font-family: 'MartinDisplayBold', Fallback, sans-serif;
 }
 
 .title-text span {
-  font-size: 12rem;
-  font-family: var(--Antonio);
+  font-size: 16rem;
+  /* font-family: var(--Antonio); */
   color: var(--Background-Alt);
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   transition: opacity 1s;
   opacity: 1;
+  font-family: 'MartinDisplayBold', Fallback, sans-serif;
 }
 
 #text-overlay {
