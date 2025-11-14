@@ -14,7 +14,7 @@ const textOverlayDiv = document.getElementById('text-overlay');
 
 /***Logo click scroll to top***/
 
-const logoBtn = document.getElementById('logo-container');
+const logoBtn = document.querySelector('.logo');
 
 logoBtn.addEventListener('click', function () {
   const duration = 750; // in ms

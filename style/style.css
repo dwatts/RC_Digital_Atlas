@@ -201,27 +201,73 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  cursor: pointer;
+  /* cursor: pointer; */
   opacity: 0;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  padding: 2rem;
 }
 
 .logo-container:hover {
   transform: translateY(-0.5rem);
   background-color: rgba(255, 255, 255, 0.5);
+  height: 24rem;
+  width: 20rem;
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  padding: 2rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .logo-container.show {
   opacity: 1;
 }
 
+.logo-container:hover .logo-menu {
+  display: block;
+}
+
 .logo img {
   width: 5rem;
   height: auto;
   z-index: 5;
+  cursor: pointer;
+  transition: all 0.3s;
 }
+
+.logo img:hover {
+  width: 5.5rem;
+  /* transform: translateY(-0.5rem); */
+}
+
+.logo-menu {
+  display: none;
+  text-align: start;
+}
+
+.logo-menu ul {
+  list-style-type: none;
+  padding-top: 1.6rem;
+}
+
+.logo-menu ul li {
+  margin-bottom: 1rem;
+  font-family: var(--Bodoni);
+  font-size: 1.6rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.logo-menu ul li:hover {
+  font-weight: 600;
+}
+
+
 
 /*Title Text*/
 
