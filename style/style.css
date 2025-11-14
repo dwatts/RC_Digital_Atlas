@@ -20,6 +20,7 @@
   /* --Bodoni:"Bodoni Moda", serif; */
   --Bodoni:"Lato", sans-serif;
   --Oswald: "Oswald", sans-serif;
+  --Martin: 'MartinDisplayBold', Fallback, sans-serif;
   /* --Background: rgba(170, 138, 82, .9); */
   --Background: rgba(170, 160, 82, .95);
   --Background-Alt: rgba(216, 182, 125, 0.95);
@@ -49,11 +50,12 @@ html, body {
   margin-top: 0px;
   font-size: 62.5%;
   overflow: hidden;
+
 }
 
 #viewDiv {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 0;
@@ -68,7 +70,7 @@ html, body {
 
 .background-starter-div {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: -1;
@@ -108,7 +110,7 @@ html, body {
 
 .loading-div {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 5;
@@ -150,7 +152,7 @@ html, body {
 } */
 
 .spinner {
-  margin-top: 12rem;
+  margin-top: 5rem;
   width: 8rem;
   display: flex;
   align-items: center;
@@ -228,6 +230,7 @@ html, body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
   margin-bottom: 75vh;
 }
 
@@ -244,7 +247,7 @@ html, body {
   letter-spacing: 1.1rem;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   text-transform:uppercase;
-  font-family: 'MartinDisplayBold', Fallback, sans-serif;
+  font-family: var(--Martin);
 }
 
 .title-text span {
@@ -254,7 +257,7 @@ html, body {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   transition: opacity 1s;
   opacity: 1;
-  font-family: 'MartinDisplayBold', Fallback, sans-serif;
+  font-family: var(--Martin);
 }
 
 #text-overlay {
@@ -262,7 +265,7 @@ html, body {
   position: relative;
   z-index: 2; 
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
 }
@@ -314,7 +317,7 @@ html, body {
 
 .video-section {
   height: 175vh;
-  width: 100vw;
+  width: 100%;
   background: linear-gradient(to top,rgba(100, 155, 146, 0.9) 80%, rgba(100, 155, 146, 0.5) 92%, transparent 100%);
   z-index: 1;
   display: flex;
@@ -382,7 +385,7 @@ html, body {
 
 .carousel-section {
   height: 125vh;
-  width: 100vw;
+  width: 100%;
   background-color: var(--Background-Blue);
   z-index: 1;
   display: flex;
@@ -574,7 +577,7 @@ html, body {
 
 .secondary-map-section {
   height: 150vh;
-  width: 100vw;
+  width: 100%;
   background-color: var(--Background-Blue);
   display: flex;
   flex-direction: column;
@@ -692,6 +695,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 #viewDivTwo {
@@ -701,6 +705,60 @@ html, body {
   overflow: hidden;
   box-shadow: 0px 4px 15px -1px var(--Dark-Brown); 
   z-index: 3; 
+}
+
+/*Side Panel Buttons Container*/
+
+.zoom-btn-container {
+    position: absolute;
+    bottom: 4rem;
+    right: 2rem;
+    width: 7rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 4;
+}
+
+/*Zoom In / Out Button*/
+
+.zoom-in-btn,
+.zoom-out-btn {
+    /* position: absolute; */
+    bottom: 4rem;
+    right: 4rem;
+    /* z-index: 2 */
+}
+
+.zoom-in-btn,
+.zoom-out-btn {
+    cursor: pointer;
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* bottom: 2rem;
+    left:2rem; */
+    height:3rem;
+    width:3rem;
+    border-radius: 50%;
+    background-color: var(--Background-Blue);
+    box-shadow: 0 1rem 5rem rgb(0, 0, 0, 0.6);
+    transition: all .3s;
+    z-index: 2;
+}
+
+.zoom-in-btn i,
+.zoom-out-btn i {
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.zoom-in-btn:hover,
+.zoom-out-btn:hover {
+    background-color: var(--Dark-Brown) !important;
+    transform: translateY(-0.09rem);
 }
 
 /* Temporary removal of accessibility border from viewDivTwo */
@@ -722,7 +780,7 @@ html, body {
 
 .options-section {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: var(--Background-Blue);
   display: flex;
   flex-direction: column;
@@ -742,6 +800,7 @@ html, body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 80%;
 }
 
 .options-section-text span {
@@ -827,14 +886,17 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
+  font-size: 3rem;
+  letter-spacing: .2rem;
+  text-transform: uppercase;
   color: var(--Dark-Brown);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 90%;
-  font-family: var(--Bodoni);
-  font-weight: 800;
+  /* font-family: var(--Bodoni); */
+  font-family: var(--Martin);
+  /* font-weight: 800; */
 }
 
 /***Bouncing Scroll Down Arrow***/

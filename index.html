@@ -54,10 +54,16 @@
         <div id="fourth" class="entry-right">
           <div class="entry-holder">
             <!-- Action Div! -->
+            <span class="text">You are looking at a recreation of the National Mall in Washington, D.C. in 1968. On the left side of the screen, you can see our rendering of Resurrection City. On the right are the Navy and Munitions Buildings, temporary structures constructed by the federal government that would be demolished in 1970.</span>
+          </div>
+        </div>
+        <div class="entry-left">
+          <div class="entry-holder">
+            <!-- Action Div! -->
             <span class="text">Resurrection City was more than just a collection of 519 temporary buildings: it was the outcome of national network of caravans, demonstrations, lobbying, coalitions, and debates. Resurrection City marked an important moment in civil rights history: the tipping point from Black-centered to socioeconomic political activism; a pivot in focus from racial injustice toward economic justice; and the remarkable leadership of the SCLC and many other civil rights leaders and workers in the wake of Dr. King's tragic murder.</span>
           </div>
         </div>
-        <div id="fifth" class="entry-left">
+        <div id="fifth" class="entry-right">
           <div class="entry-holder">
             <!-- Non-Action Div -->
             <span class="text">Resurrection City's location in America's most iconic and powerful memorial landscape was a deliberate decision for organizers. Protests have long played a central role in American democracy, and staging this protest in the heart of DC's monumental core &dash; practically in the shadow of Lincoln &dash; speaks to its significance. Resurrection City continued a long American tradition of resistance, civil demonstration, and claims to public space as landscapes of protest. But the impermanence of these protests raises an important question for historical preservation: how can they be preserved and remembered as part of the ongoing life of park landscapes?</span>
@@ -226,6 +232,15 @@
               <!--  -->
             </div>
             <div class="map-holder">
+                <div id="zoomButtons" class="zoom-btn-container">
+                    <div id="zoom-in-btn" class="zoom-in-btn">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+
+                    <div id="zoom-out-btn" class="zoom-out-btn">
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                </div>
                 <div id="viewDivTwo"></div>
                 <span>Zoom in to take a closer look at our reconstruction of Resurrection City</span>
             </div>
@@ -236,9 +251,10 @@
         <!-- Atlas Options Section -->
 
         <div class="options-section">
+          
           <h1>Explore the Atlas</h1>
           <div class="options-section-text">
-            <span>Explore our recreations of Resurrection City across these four sequences, each detailing an important phase of this site’s history and impact:</span>
+            <span>Explore our recreations of Resurrection City across these four sequences, each detailing an important phase of this site's history and impact:</span>
           </div>
           <div class="options-container">
             <div class="option-wrapper">
@@ -306,6 +322,6 @@
     <script src="https://js.arcgis.com/4.32/"></script>
     <script src="script/labels.js"></script>
     <script src="script/renderers.js"></script>
-    <script src="script/script.js"></script>
+    <script type="module" src="script/script.js"></script>
   </body>
 </html>
