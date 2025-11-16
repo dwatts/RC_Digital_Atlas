@@ -144,7 +144,7 @@ nextBtn.addEventListener("click", handleNext);
 /***Add Map Layers***/
 
 const rcStructures = new SceneLayer({
-  url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Models/SceneServer",
+  url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Resurrection_City_Structures/SceneServer",
   renderer: dcBuildingsRenderer,
   elevationInfo: {
     mode: "on-the-ground"
@@ -153,7 +153,7 @@ const rcStructures = new SceneLayer({
 });
 
 const rcStructuresBackground = new SceneLayer({
-  url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Models/SceneServer",
+  url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Resurrection_City_Structures/SceneServer",
   renderer: rcStructuresRenderer,
   elevationInfo: {
     mode: "on-the-ground"
@@ -163,7 +163,7 @@ const rcStructuresBackground = new SceneLayer({
 });
 
 const rcTrees = new SceneLayer({                    
-    url:"https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Trees_Expanded/SceneServer",
+    url:"https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Resurrection_City_Area_Trees/SceneServer",
     opacity: 0.7,
     popupEnabled: false
 });
