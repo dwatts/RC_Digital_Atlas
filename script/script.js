@@ -163,7 +163,7 @@ const rcStructuresBackground = new SceneLayer({
 });
 
 const rcTrees = new SceneLayer({                    
-    url:"https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Resurrection_City_Area_Trees/SceneServer",
+    url:"https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Trees_3D/SceneServer",
     opacity: 0.7,
     popupEnabled: false
 });

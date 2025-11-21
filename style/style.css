@@ -439,7 +439,6 @@ html, body {
   justify-content: center;
 }
 
-
 /*** Splide JS***/
 
 .carousel {
@@ -940,9 +939,7 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 90%;
-  /* font-family: var(--Bodoni); */
   font-family: var(--Martin);
-  /* font-weight: 800; */
 }
 
 /***Bouncing Scroll Down Arrow***/
