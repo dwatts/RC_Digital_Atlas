@@ -345,7 +345,7 @@ html, body {
 }
 
 .entry-holder span {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 300;
   font-family: var(--Bodoni);
   color: #fff;
@@ -401,7 +401,7 @@ html, body {
 }
 
 .video-section-text-holder span {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 400;
   font-family: var(--Bodoni);
   color: white;
@@ -583,14 +583,14 @@ html, body {
   color: #fff;
   font-family: var(--Bodoni);
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2.7rem;
   letter-spacing: .05rem;
 }
 
 .slide-info a {
   font-family: var(--Bodoni);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 2.7rem;
   letter-spacing: .05rem;
@@ -640,7 +640,7 @@ html, body {
   color: #fff;
   font-family: var(--Bodoni);
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2.7rem;
   letter-spacing: .05rem;
 }
@@ -880,18 +880,10 @@ html, body {
 }
 
 .option-wrapper span { 
-  /* font-size: 1.5rem;
-  font-weight: 400;
-  font-family: var(--Bodoni);
-  color: #fff;
-  letter-spacing: .05rem;
-  text-align: center;
-  line-height: 2rem; */
-
   color: #fff;
   font-family: var(--Bodoni);
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2.3rem;
   text-align: center;
   letter-spacing: .05rem;
