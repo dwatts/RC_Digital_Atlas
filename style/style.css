@@ -294,6 +294,7 @@ html, body {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   text-transform:uppercase;
   font-family: var(--Martin);
+  cursor: default;
 }
 
 .title-text span {
@@ -304,6 +305,7 @@ html, body {
   transition: opacity 1s;
   opacity: 1;
   font-family: var(--Martin);
+  cursor: default;
 }
 
 #text-overlay {
@@ -351,12 +353,14 @@ html, body {
   color: #fff;
   line-height: 2.7rem;
   letter-spacing: .05rem;
+  cursor: default;
 }
 
 .entry-holder p {
   font-family: var(--Bodoni);
   font-weight: 600;
   padding-bottom: 1rem;
+  cursor: default;
 }
 
 /***Video Div***/
@@ -407,6 +411,7 @@ html, body {
   color: white;
   line-height: 2.7rem;
   letter-spacing: .05rem;
+  cursor: default;
 }
 
 .video-section-video {
@@ -456,19 +461,14 @@ html, body {
     position: absolute;
     top: 50%;
     transform: translatey(-50%);
-
     margin: 0;
     padding: 0;
-    
     display: grid;
     place-items: center;
-
     background: none;
     border: none;
-
     height: 100%;
     width: 3rem;
-
     z-index: 3;
 }
 
@@ -538,11 +538,8 @@ html, body {
 
 .slide-info {
     position: absolute;
-    /* bottom: 1rem; */
-    /* left: 2rem; */
     height: 100%;
     padding: 2.5rem 2.5rem 2.5rem 3.5rem;
-    /* width: 20rem; */
     width: 30rem;
     overflow: hidden;
     display: flex;
@@ -552,6 +549,7 @@ html, body {
     color: white;
     z-index: 2;
     transition: all ease-in-out var(--duration);
+    cursor: default;
 }
 
 .slide:not(.showcase) > .slide-info {
@@ -643,6 +641,7 @@ html, body {
   font-size: 1.8rem;
   line-height: 2.7rem;
   letter-spacing: .05rem;
+  cursor: default;
 }
 
 .map-container {
@@ -674,6 +673,7 @@ html, body {
   line-height: 2.7rem;
   letter-spacing: .05rem;
   padding-bottom: 1rem;
+  cursor: default;
 }
 
 .map-legend p {
@@ -682,6 +682,7 @@ html, body {
   font-family: var(--Anton);
   line-height: 2.7rem;
   letter-spacing: .05rem;
+  cursor: default;
 }
 
 .legend-item {
@@ -819,6 +820,7 @@ html, body {
   font-family: var(--Bodoni);
   font-weight: 400;
   color: #fff;
+  cursor: default;
 }
 
 /***Atlas Options Section***/
@@ -837,7 +839,9 @@ html, body {
   padding-bottom: 3rem;
   font-size: 5rem;
   letter-spacing: 0.1rem;
-  color: var(--Dark-Brown)
+  color: var(--Dark-Brown);
+  cursor: default;
+
 }
 
 .options-section-text {
@@ -846,6 +850,7 @@ html, body {
   justify-content: center;
   flex-direction: column;
   width: 80%;
+  cursor: default;
 }
 
 .options-section-text span {
@@ -856,11 +861,6 @@ html, body {
   color: white;
   letter-spacing: .05rem;
 }
-
-/* .options-section-text ul {
-  padding-left: 1rem;
-  padding-top: 2rem;
-} */
 
 .options-container {
   display: flex;
@@ -887,6 +887,7 @@ html, body {
   line-height: 2.3rem;
   text-align: center;
   letter-spacing: .05rem;
+  cursor: default;
 }
 
 .option {
