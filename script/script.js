@@ -144,7 +144,7 @@ nextBtn.addEventListener("click", handleNext);
 /***Add Map Layers***/
 
 const rcStructures = new SceneLayer({
-  url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Resurrection_City_Structures/SceneServer",
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/Resurrection_City_Structure_Models/SceneServer",
   renderer: dcBuildingsRenderer,
   elevationInfo: {
     mode: "on-the-ground"
@@ -153,7 +153,7 @@ const rcStructures = new SceneLayer({
 });
 
 const rcStructuresBackground = new SceneLayer({
-  url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/Resurrection_City_Structures/SceneServer",
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/Resurrection_City_Structure_Models/SceneServer",
   renderer: rcStructuresRenderer,
   elevationInfo: {
     mode: "on-the-ground"
@@ -163,60 +163,60 @@ const rcStructuresBackground = new SceneLayer({
 });
 
 const rcTrees = new SceneLayer({                    
-    url:"https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/RC_Trees_3D/SceneServer",
-    opacity: 0.7,
-    popupEnabled: false
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/Resurrection_City_Trees/SceneServer",
+  opacity: 0.7,
+  popupEnabled: false
 });
 
 const dcBuildings = new SceneLayer({
-    url: "https://services.arcgis.com/neT9SoYxizqTHZPH/arcgis/rest/services/DC_3D_Buildings/SceneServer",
-    definitionExpression: "EGID NOT IN ('DC00002813', 'DC00002812', 'DC00002810', 'DC00002811', 'DC00002814', 'DC00002809')",
-    renderer: dcBuildingsRenderer,
-    popupEnabled: false
+  url: "https://services.arcgis.com/neT9SoYxizqTHZPH/arcgis/rest/services/DC_3D_Buildings/SceneServer",
+  definitionExpression: "EGID NOT IN ('DC00002813', 'DC00002812', 'DC00002810', 'DC00002811', 'DC00002814', 'DC00002809')",
+  renderer: dcBuildingsRenderer,
+  popupEnabled: false
 });
 
 const dcBuildingsBackground = new SceneLayer({
-    url: "https://services.arcgis.com/neT9SoYxizqTHZPH/arcgis/rest/services/DC_3D_Buildings/SceneServer",
-    definitionExpression: "EGID NOT IN ('DC00002813', 'DC00002812', 'DC00002810', 'DC00002811', 'DC00002814', 'DC00002809')",
-    renderer: dcBuildingsRenderer,
-    popupEnabled: false
+  url: "https://services.arcgis.com/neT9SoYxizqTHZPH/arcgis/rest/services/DC_3D_Buildings/SceneServer",
+  definitionExpression: "EGID NOT IN ('DC00002813', 'DC00002812', 'DC00002810', 'DC00002811', 'DC00002814', 'DC00002809')",
+  renderer: dcBuildingsRenderer,
+  popupEnabled: false
 });
 
 const newDealBuildings = new SceneLayer({
-  url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/NewDeal_Mall_Structures/SceneServer",
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/New_Deal_Mall_Buildings/SceneServer",
   renderer: dcBuildingsRenderer,
   popupEnabled: false
 });
 
 const newDealBuildingsBackground = new SceneLayer({
-  url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/NewDeal_Mall_Structures/SceneServer",
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/New_Deal_Mall_Buildings/SceneServer",
   renderer: dcBuildingsRenderer,
   popupEnabled: false
 });
 
 const newDealBuildingsLabelPoint = new FeatureLayer({
-  url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/New_Deal_Building_Label/FeatureServer",
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/New_Deal_Structure_Label_Point/FeatureServer",
   labelingInfo: [newDealLabel],
   renderer: newDealPointRenderer
-})
+});
 
-  const dcbaseVector = new VectorTileLayer ({
-    url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base_Map/VectorTileServer",
-    opacity: 0
-  });
+const dcbaseVector = new VectorTileLayer ({
+  url: "https://vectortileservices3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/DC_Vector_Base_Map/VectorTileServer",
+  opacity: 0
+});
 
-  const dcbaseVectorBackground = new VectorTileLayer ({
-    url: "https://vectortileservices2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Vector_Base_Map/VectorTileServer",
-    opacity: 0.7
-  });     
-
+const dcbaseVectorBackground = new VectorTileLayer ({
+  url: "https://vectortileservices3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/DC_Vector_Base_Map/VectorTileServer",
+  opacity: 0.7
+});     
+ 
 const dcBase1965 = new TileLayer ({
-  url: "https://tiles.arcgis.com/tiles/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Aerial_1965/MapServer",
+  url: "https://tiles.arcgis.com/tiles/9nfxWATFamVUTTGb/arcgis/rest/services/DC_Aerial_1965/MapServer",
   opacity: 1,
 });
 
 const dcBoundary = new FeatureLayer({
-  url: "https://services2.arcgis.com/njxlOVQKvDzk10uN/arcgis/rest/services/DC_Boundary/FeatureServer",
+  url: "https://services3.arcgis.com/9nfxWATFamVUTTGb/arcgis/rest/services/DC_Boundary/FeatureServer",
   renderer: dcBoundaryRenderer
 })
 
