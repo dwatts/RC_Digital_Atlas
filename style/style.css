@@ -255,15 +255,20 @@ html, body {
   padding-top: 1.6rem;
 }
 
-.logo-menu ul li {
+.logo-menu li {
+  margin-bottom: 1rem;
+}
+
+.logo-menu a {
   margin-bottom: 1rem;
   font-family: var(--Bodoni);
   font-size: 1.6rem;
   font-weight: 400;
   cursor: pointer;
+  color: var(--Dark-Brown)
 }
 
-.logo-menu ul li:hover {
+.logo-menu a:hover {
   font-weight: 600;
 }
 
@@ -910,11 +915,29 @@ html, body {
   transform: translateY(-0.5rem);
 }
 
-.option > img {
+/* .option > img {
   width: inherit;
   height: inherit;
   object-fit: cover;
   position: absolute;
+  border-radius: inherit;
+  opacity: 0.5;
+} */
+
+.option a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative; /* important */
+}
+
+.option img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: inherit;
   opacity: 0.5;
 }
